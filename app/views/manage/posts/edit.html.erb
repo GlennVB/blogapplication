@@ -1,0 +1,39 @@
+<div ng-app="app">
+  <div ng-controller="postsController">
+    <script>
+      window.post_id = <%= @post.id %>;
+    </script>
+    <header class="intro-header" style="background-image: url('/img/post-bg.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>{{post.title}}</h1>
+
+              <h2 class="subheading">{{post.description}}</h2>
+              <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="col-md-12">
+      <article>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 summernote">
+              <%= @post.body.html_safe %>
+            </div>
+          </div>
+        </div>
+      </article>
+      <a href="#" ng-click="submitForm(post)" class="btn btn-default btn-block btn-lg">
+        Submit Post
+      </a>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Show', manage_post_path(@post) %> |
+<%= link_to 'Back', manage_posts_path %>
